@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nuc.edu.cn.mybatis.mapper.OrderMapper">
+    <select id="findOrderById" resultType="nuc.edu.cn.mybatis.pojo.Orders">
+    select * from orders where id=#{id}
+  </select>
+  <!-- useGeneratedKeys="true" keyProperty="id" 用于自动递增字段的值回显 -->
+    <insert id="insertOrder"  parameterType="nuc.edu.cn.mybatis.pojo.Orders" >
+        insert into orders(user_id,number,createtime,note) values(#{user_id},#{number},#{createtime},#{note})
+    </insert>
+</mapper>
